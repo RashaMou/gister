@@ -1,30 +1,44 @@
 <script>
-	export let name;
+  import Header from "./components/Header.svelte";
+  import Sidebar from "./components/Sidebar.svelte";
+  import Search from "./components/Search.svelte";
+  import Content from "./components/Content.svelte";
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap"
+    rel="stylesheet"
+  />
+</svelte:head>
+
+<Header />
+<div class="wrapper">
+  <Sidebar />
+  <div class="main">
+    <Search />
+    <Content />
+  </div>
+</div>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  :global(body, img, h1, h2, h3, div) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: "Source Sans Pro", sans-serif;
+    box-sizing: border-box;
+  }
+  .wrapper {
+    display: flex;
+  }
+  .main {
+    width: 75%;
+    padding: 0 25px 0 25px;
+  }
 </style>
